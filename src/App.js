@@ -125,7 +125,7 @@ const App = () => {
           style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
         >
           <img src={musicIcon} alt="Music Icon" style={{ width: '100px', height: '100px' }}/>
-          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>my2024playlist</span>
+          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>2024playlist.mp3</span>
         </div>
 
       </DraggableComponent>
@@ -138,7 +138,7 @@ const App = () => {
           style={{ width: '100px', height: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} // Set size to 100px width and height and align content center
         >
           <img src={envelopeIcon} alt="Envelope Icon" style={{ width: '100px', height: '100px' }}/>
-          <span style={{ color: 'white', fontFamily: 'Arial', fontSize: '16px' }}>email</span>
+          <span style={{ color: 'white', fontFamily: 'Arial', fontSize: '16px' }}>email.exe</span>
         </div>
 
       </DraggableComponent>
@@ -152,10 +152,17 @@ const App = () => {
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={() => handleMouseUp('browserFile')} // Pass label as argument
-          style={{ width: '120px', height: '100px' }} // Set size to 100px width and height
+          style={{ 
+            width: '120px', 
+            height: '100px', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center' // Center content
+          }} // Set size to 100px width and height
         >
           <img src={browserFileIcon} style={{ width: '100px', height: '100px' }}/>
-          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>workingWithDj</span>
+          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>workingWithDj.html</span>
         </div>
 
       </DraggableComponent>
