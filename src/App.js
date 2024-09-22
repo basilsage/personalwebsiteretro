@@ -39,7 +39,7 @@ const App = () => {
       } else if (buttonType === 'music') {
         window.open('https://open.spotify.com/playlist/4vFqXxc10fEJ7G5GfpZSEi?si=29322aa5d28845f6', '_blank');
       } else if (buttonType === 'browserFile') {
-        window.open('https://notion.com', '_blank');
+        window.open('https://ossified-pluto-bdd.notion.site/Working-with-DJ-a-User-Manual-10946353e32d80308131d70f07cb56f8?pvs=4', '_blank');
       }
     }
   };
