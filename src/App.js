@@ -6,6 +6,8 @@ import FolderIconButton from './FolderIconButton'; // Import the new button comp
 import './App.css';
 import FileIconButton from './FileIconButton';
 import musicIcon from './musicIcon.png';
+
+import envelopeIcon from './envelopeIcon.png'
 import browserFileIcon from './browserFileIcon.png'
 
 import OpenFolderWindow from './OpenFolderWindow';
@@ -40,6 +42,8 @@ const App = () => {
         window.open('https://open.spotify.com/playlist/4vFqXxc10fEJ7G5GfpZSEi?si=29322aa5d28845f6', '_blank');
       } else if (buttonType === 'browserFile') {
         window.open('https://ossified-pluto-bdd.notion.site/Working-with-DJ-a-User-Manual-10946353e32d80308131d70f07cb56f8?pvs=4', '_blank');
+      } else if (buttonType === 'envelope') {
+        window.location.href = 'mailto:dj.satoda@gmail.com';
       }
     }
   };
@@ -126,6 +130,19 @@ const App = () => {
 
       </DraggableComponent>
 
+      <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
+      <div
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={() => handleMouseUp('envelope')} // Pass label as argument
+          style={{ width: '100px', height: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} // Set size to 100px width and height and align content center
+        >
+          <img src={envelopeIcon} alt="Envelope Icon" style={{ width: '100px', height: '100px' }}/>
+          <span style={{ color: 'white', fontFamily: 'Arial', fontSize: '16px' }}>email</span>
+        </div>
+
+      </DraggableComponent>
+
       
 
       
@@ -138,7 +155,7 @@ const App = () => {
           style={{ width: '120px', height: '100px' }} // Set size to 100px width and height
         >
           <img src={browserFileIcon} style={{ width: '100px', height: '100px' }}/>
-          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>working with me</span>
+          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>workingWithDj</span>
         </div>
 
       </DraggableComponent>
