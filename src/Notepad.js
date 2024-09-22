@@ -8,6 +8,7 @@ const Notepad = ({ onClose, fileName, fileText }) => {
     borderRadius: '3px',
     boxShadow: '2px 2px 5px rgba(0,0,0,0.3)',
     fontFamily: 'Arial, sans-serif',
+    backgroundColor: 'white',
   };
 
   const titleBarStyle = {
@@ -35,8 +36,9 @@ const Notepad = ({ onClose, fileName, fileText }) => {
   };
 
   const textAreaStyle = {
-    width: '100%',
-    height: 'calc(100% - 30px)',
+    // width: '100%',
+    // height: '100%',
+    // height: 'calc(100% - 30px)',
     border: 'none',
     padding: '10px',
     boxSizing: 'border-box',
@@ -50,7 +52,7 @@ const Notepad = ({ onClose, fileName, fileText }) => {
         <p style={titleStyle}>{fileName}</p>
         <div style={closeButtonStyle} onClick={onClose}>X</div>
       </div>
-      <div style={{ backgroundColor: 'white', height: '100%', padding: '10px' }}>
+      <div style={{ height: 'calc(100% - 53px)', padding: '10px' }}>
         <span style={textAreaStyle}>{fileText}</span>
 
       </div>
