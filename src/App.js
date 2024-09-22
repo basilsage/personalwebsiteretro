@@ -51,7 +51,7 @@ const App = () => {
 
   const aboutMeText = 
     <span style={{ display: 'block' }}>
-      hi, i'm <a href="https://www.linkedin.com/in/djsatoda/" target="_blank" rel="noopener noreferrer">dj</a>. 
+      hi, i'm <a href="https://www.linkedin.com/in/djsatoda/" target="_blank" rel="noopener noreferrer">dj</a> 
       
       <br/><br/>
       i live in nyc
