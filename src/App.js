@@ -67,6 +67,19 @@ const App = () => {
       when i grow up, i want to be a successful software founder / investor
     </span>;
 
+  const specialtiesText = 
+  <span style={{ display: 'block' }}>
+    
+    building web apps (e.g. for <a href="https://frequency-website-2.vercel.app/discover" target="_blank" rel="noopener noreferrer">querying podcast transcripts</a>, <a href="https://tryprimer.io/" target="_blank" rel="noopener noreferrer">ai generated podcast summaries</a>)
+    <br/><br/>
+    geeking about <a href="https://pivotal.substack.com/p/economics-of-data-biz" target="_blank" rel="noopener noreferrer">data businesses</a>
+    <br/><br/>
+    <a href="https://www.youtube.com/shorts/rXwAdL6RT4U" target="_blank" rel="noopener noreferrer">front kicks</a> and <a href="https://www.youtube.com/shorts/BJn5rh6nsfI" target="_blank" rel="noopener noreferrer">triangle chokes from guard</a>
+     
+    <br/><br/>
+    volunteering with low-income / poc youth (e.g. <a href="https://www.baycat.org/" target="_blank" rel="noopener noreferrer">baycat</a>, <a href="https://apexforyouth.org/" target="_blank" rel="noopener noreferrer">apex</a>)
+  </span>;
+
   const dearDiaryText = 
   <span style={{ display: 'block' }}>
     goals in life:
@@ -189,6 +202,19 @@ const App = () => {
         >
           <FileIconButton 
             fileName="aboutMe.txt"            
+          /> {/* Pass label prop */}
+        </div>
+      </DraggableComponent>
+
+      <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
+        <div
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={() => handleMouseUp('file', 'specialties.txt', specialtiesText)} // Pass label as argument
+          style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
+        >
+          <FileIconButton 
+            fileName="specialties.txt"            
           /> {/* Pass label prop */}
         </div>
       </DraggableComponent>
