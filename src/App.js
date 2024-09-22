@@ -135,10 +135,10 @@ const App = () => {
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={() => handleMouseUp('browserFile')} // Pass label as argument
-          style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
+          style={{ width: '120px', height: '100px' }} // Set size to 100px width and height
         >
           <img src={browserFileIcon} style={{ width: '100px', height: '100px' }}/>
-          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>dj user guide</span>
+          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>working with me</span>
         </div>
 
       </DraggableComponent>
