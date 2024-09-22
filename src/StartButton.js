@@ -17,21 +17,23 @@ const StartButton = () => {
         borderRight: '5px solid black',
         cursor: 'pointer', // Make cursor a pointer
         display: 'flex',
-        alignItems: 'center', // Center vertically
         justifyContent: 'center',
         boxSizing: 'border-box',
         fontSize: '1.5em', // Make text larger
         fontWeight: 'bold', // Make font weight heavier
-        minWidth: '100px', // Set a minimum width for mobile
+        minWidth: '130px', // Set a minimum width for mobile
+        paddingRight: '6px'
       }}
     >
-      <img src={microsoftLogo} alt="Microsoft Logo" style={{ 
-        height: '80%', 
-        marginRight: '5px', 
-        marginLeft: '5px', 
-        alignSelf: 'center' // Center vertically
-      }} />
-      Start
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img src={microsoftLogo} alt="Microsoft Logo" style={{ 
+            height: '80%', 
+            marginRight: '5px', 
+            marginLeft: '5px'
+        }} />
+        <span>Start</span>
+      </div>
+      
     </div>
   );
 }
