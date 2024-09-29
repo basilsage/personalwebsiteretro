@@ -70,7 +70,7 @@ const App = () => {
   const specialtiesText = 
   <span style={{ display: 'block' }}>
     
-    building web apps (e.g. for <a href="https://frequency-website-2.vercel.app/discover" target="_blank" rel="noopener noreferrer">querying podcast transcripts</a>, <a href="https://tryprimer.io/" target="_blank" rel="noopener noreferrer">ai generated podcast summaries</a>)
+    building web apps (e.g. for <a href="https://frequency-8fef78.webflow.io/" target="_blank" rel="noopener noreferrer">querying podcast transcripts</a>, <a href="https://tryprimer.io/" target="_blank" rel="noopener noreferrer">ai generated podcast summaries</a>)
     <br/><br/>
     geeking about <a href="https://pivotal.substack.com/p/economics-of-data-biz" target="_blank" rel="noopener noreferrer">data businesses</a>
     <br/><br/>
