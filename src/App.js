@@ -175,7 +175,7 @@ const App = () => {
           }} // Set size to 100px width and height
         >
           <img src={browserFileIcon} style={{ width: '100px', height: '100px' }}/>
-          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>workingWithDj.html</span>
+          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>personalAd.html</span>
         </div>
 
       </DraggableComponent>
