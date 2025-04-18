@@ -58,7 +58,10 @@ const ReaderNotepad = ({ onClose, fileName, fileText }) => {
         <div style={closeButtonStyle} onClick={onClose}>X</div>
       </div>
       <div style={{ height: 'calc(100% - 53px)', padding: '10px', overflowY: 'auto', maxHeight: 'calc(100% - 10px)' }}>
-        <span style={{...textAreaStyle, whiteSpace: 'pre-wrap', display: 'block'}}>{fileText}</span>
+        <div 
+          style={{...textAreaStyle, whiteSpace: 'pre-wrap', display: 'block'}}
+          dangerouslySetInnerHTML={{ __html: fileText }}
+        />
       </div>
       
     </div>
