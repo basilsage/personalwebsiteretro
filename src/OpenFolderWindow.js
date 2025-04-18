@@ -50,6 +50,13 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
     borderBottom: '1px solid black',    
   };
 
+  const columnMobileStyle = {
+    textAlign: 'left',
+    '@media (max-width: 768px)': {
+      display: 'none'
+    }
+  };
+
   return (
       <div 
         style={openFolderWindowStyle}
@@ -61,8 +68,8 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
         </div>
         <div style={tableHeaderStyle}>
           <div style={{ textAlign: 'left', width: '50%' }}>Name</div>
-          <div style={{ textAlign: 'left', width: '25%' }}>Type</div>
-          <div style={{ textAlign: 'left', width: '25%' }}>Last Modified</div>          
+          <div style={{ ...columnMobileStyle, width: '25%' }}>Type</div>
+          <div style={{ ...columnMobileStyle, width: '25%' }}>Last Modified</div>          
         </div>
         {/* file list */}
         <div style={{ 
@@ -89,12 +96,12 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
               </div>
               {/* Type column - hidden on mobile */}
               <div style={{ 
-                textAlign: 'left', 
+                ...columnMobileStyle,
                 width: '25%',                
               }}>{file.type}</div>
               {/* Last Modified column - hidden on mobile */}
               <div style={{ 
-                textAlign: 'left', 
+                ...columnMobileStyle,
                 width: '25%',                
               }}>{file.last_modified}</div>
             </div>
