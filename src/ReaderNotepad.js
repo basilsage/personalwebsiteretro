@@ -1,4 +1,5 @@
 import React from 'react';
+import './ReaderNotepad.css';
 
 const ReaderNotepad = ({ onClose, fileName, fileText }) => {
   const notepadStyle = {
@@ -51,7 +52,7 @@ const ReaderNotepad = ({ onClose, fileName, fileText }) => {
   };
 
   return (
-    <div style={notepadStyle}>
+    <div style={notepadStyle} className="mobile-notepad">
       <div style={titleBarStyle}>
         <p style={titleStyle}>{fileName}</p>
         <div style={closeButtonStyle} onClick={onClose}>X</div>
