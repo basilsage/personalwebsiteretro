@@ -103,7 +103,7 @@ const App = () => {
   </span>;
 
   const writingFolderFiles = [
-    { name: 'i_love_data_businesses.txt', type: '.txt', last_modified: '2025-04-18', text: loveLetterToDataBusinessesText },
+    { name: 'data_businesses.html', type: '.html', last_modified: '2025-04-18', text: loveLetterToDataBusinessesText },
   ];
 
   const miscellaneousFolderFiles = [
@@ -111,9 +111,7 @@ const App = () => {
   ];
 
   const handleWritingFileClick = (fileName) => {
-    setSelectedFileName(fileName)
-    setSelectedFileText(writingFolderFiles.find(file => file.name === fileName).text)
-    setIsReaderNotepadVisible(true)
+    window.open(`/writing/${fileName}`, '_blank');
   }
 
   const handleMiscellaneousFileClick = (fileName) => {
