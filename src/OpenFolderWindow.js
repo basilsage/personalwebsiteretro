@@ -2,7 +2,7 @@ import React from 'react';
 import FolderIconButton from './FolderIconButton'; // Import FolderIconButton
 import FileIconButton from './FileIconButton';
 import fileIcon from './fileIcon.png';
-
+import './OpenFolderWindow.css';
 const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
   const openFolderWindowStyle = {
     width: '50vw',
@@ -50,13 +50,6 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
     borderBottom: '1px solid black',    
   };
 
-  const columnMobileStyle = {
-    textAlign: 'left',
-    '@media (max-width: 768px)': {
-      display: 'none'
-    }
-  };
-
   return (
       <div 
         style={openFolderWindowStyle}
@@ -68,8 +61,8 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
         </div>
         <div style={tableHeaderStyle}>
           <div style={{ textAlign: 'left', width: '50%' }}>Name</div>
-          <div style={{ ...columnMobileStyle, width: '25%' }}>Type</div>
-          <div style={{ ...columnMobileStyle, width: '25%' }}>Last Modified</div>          
+          <div className="mobile-hidden" style={{ width: '25%' }}>Type</div>
+          <div className="mobile-hidden" style={{ width: '25%' }}>Last Modified</div>          
         </div>
         {/* file list */}
         <div style={{ 
@@ -95,15 +88,9 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
                 <span style={{ marginLeft: '8px' }}>{file.name}</span>
               </div>
               {/* Type column - hidden on mobile */}
-              <div style={{ 
-                ...columnMobileStyle,
-                width: '25%',                
-              }}>{file.type}</div>
+              <div className="mobile-hidden" style={{ width: '25%' }}>{file.type}</div>
               {/* Last Modified column - hidden on mobile */}
-              <div style={{ 
-                ...columnMobileStyle,
-                width: '25%',                
-              }}>{file.last_modified}</div>
+              <div className="mobile-hidden" style={{ width: '25%' }}>{file.last_modified}</div>
             </div>
           ))}
         </div>      
