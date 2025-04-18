@@ -9,7 +9,7 @@ import FolderIconButton from './FolderIconButton';
 
 // Miscellaneous folder files
 import favoriteMoviesText from './miscellaneous_pieces/favorite_movies.js';
-
+import goodreadsExportText from './miscellaneous_pieces/goodreads_export.js';
 // Writing folder files
 import loveLetterToDataBusinessesText from './writing_pieces/love_letter_to_data_businesses.js';
 
@@ -95,6 +95,7 @@ const App = () => {
 
   const miscellaneousFolderFiles = [
     { name: 'favorite_movies.txt', type: '.txt', last_modified: '2025-04-18', text: favoriteMoviesText },
+    { name: 'goodreads_export.txt', type: '.txt', last_modified: '2025-04-18', text: goodreadsExportText },
   ];
 
   const handleWritingFileClick = (fileName) => {
