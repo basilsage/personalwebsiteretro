@@ -17,9 +17,11 @@ import envelopeIcon from './envelopeIcon.png'
 import browserFileIcon from './browserFileIcon.png'
 
 import OpenFolderWindow from './OpenFolderWindow';
+import ReaderNotepad from './ReaderNotepad';
 
 const App = () => {
   const [isNotepadVisible, setIsNotepadVisible] = useState(false); 
+  const [isReaderNotepadVisible, setIsReaderNotepadVisible] = useState(false);
   const [isOpenFolderWindowVisible, setIsOpenFolderWindowVisible] = useState(false);
   const [selectedFolderName, setSelectedFolderName] = useState(null)
   const [selectedFileName, setSelectedFileName] = useState(null)
@@ -108,10 +110,16 @@ const App = () => {
     { name: 'favorite_movies.txt', type: '.txt', last_modified: '2025-04-18', text: favoriteMoviesText },
   ];
 
-  const handleFolderFileClick = (fileName) => {
+  const handleWritingFileClick = (fileName) => {
     setSelectedFileName(fileName)
     setSelectedFileText(writingFolderFiles.find(file => file.name === fileName).text)
-    setIsNotepadVisible(true)
+    setIsReaderNotepadVisible(true)
+  }
+
+  const handleMiscellaneousFileClick = (fileName) => {
+    setSelectedFileName(fileName)
+    setSelectedFileText(miscellaneousFolderFiles.find(file => file.name === fileName).text)
+    setIsReaderNotepadVisible(true)
   }
 
   return (
@@ -235,10 +243,18 @@ const App = () => {
             onClose={() => setIsOpenFolderWindowVisible(false)} 
             titleText={selectedFolderName} // Add titleText prop
             files={selectedFolderName === 'writing' ? writingFolderFiles : miscellaneousFolderFiles}
-            onFileClick={handleFolderFileClick}
+            onFileClick={selectedFolderName === 'writing' ? handleWritingFileClick : handleMiscellaneousFileClick}
           />
         </DraggableComponent>
         
+      )}
+
+      {isReaderNotepadVisible && (        
+          <ReaderNotepad 
+            onClose={() => setIsReaderNotepadVisible(false)}
+            fileName={selectedFileName}
+            fileText={selectedFileText}
+          />
       )}
       
       {isNotepadVisible && (

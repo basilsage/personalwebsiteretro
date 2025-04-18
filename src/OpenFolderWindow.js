@@ -80,14 +80,7 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
           backgroundColor: 'white', 
           height: '100%', 
           cursor: 'default',
-          // Media query for mobile devices (width <= 768px)
-          // Hides the Type and Last Modified columns in each file row
-          // Uses nth-child selectors to target the second and third columns
-          '@media (max-width: 768px)': {
-            '& > div > div:nth-child(2), & > div > div:nth-child(3)': {
-              display: 'none'
-            }
-          }
+          overflow: 'auto'
         }}>
           {files.map((file, index) => (
             <div key={index} style={{ 
@@ -106,9 +99,21 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
                 <span style={{ marginLeft: '8px' }}>{file.name}</span>
               </div>
               {/* Type column - hidden on mobile */}
-              <div style={{ textAlign: 'left', width: '33.33%' }}>{file.type}</div>
+              <div style={{ 
+                textAlign: 'left', 
+                width: '33.33%',
+                '@media (max-width: 768px)': {
+                  display: 'none'
+                }
+              }}>{file.type}</div>
               {/* Last Modified column - hidden on mobile */}
-              <div style={{ textAlign: 'left', width: '33.33%' }}>{file.last_modified}</div>
+              <div style={{ 
+                textAlign: 'left', 
+                width: '33.33%',
+                '@media (max-width: 768px)': {
+                  display: 'none'
+                }
+              }}>{file.last_modified}</div>
             </div>
           ))}
         </div>      
