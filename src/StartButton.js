@@ -4,7 +4,7 @@ import microsoftLogo from './microsoftLogo.png';
 const StartButton = () => {
   return (
     <div 
-      onClick={() => alert('dj satoda | built in nyc | updated 9.21.24')}
+      onClick={() => alert('dj satoda | built in nyc | updated 4.18.25')}
       style={{
         position: 'absolute',
         bottom: 0,

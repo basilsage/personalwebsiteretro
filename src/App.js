@@ -74,6 +74,8 @@ const App = () => {
       <br/><br/>
       i work as a product manager at <a href="https://mixpanel.com" target="_blank" rel="noopener noreferrer">mixpanel</a>, where i build data analytics software for other product managers
       <br/><br/>
+      my favorite part of my job is jamming with silly engineers and cool designers 
+      <br/><br/>
       when i grow up, i want to be a successful software founder / investor
     </span>;
 
@@ -92,13 +94,13 @@ const App = () => {
 
   const dearDiaryText = 
   <span style={{ display: 'block' }}>
-    goals in life:
+    my goals in life:
     <br/><br/> 
-    build great software products 
+    - build great software products 
     <br/><br/>     
-    be a formidable mixed martial artist
+    - be a formidable mixed martial artist
     <br/><br/>     
-    support low-income / minority founders and artists
+    - support low-income / minority founders and artists
     <br/><br/>     
   </span>;
 
@@ -186,27 +188,27 @@ const App = () => {
         <div
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
-          onMouseUp={() => handleMouseUp('file', 'aboutMe.txt', aboutMeText)} // Pass label as argument
+          onMouseUp={() => handleMouseUp('file', 'about_me.txt', aboutMeText)} // Pass label as argument
           style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
         >
           <FileIconButton 
-            fileName="aboutMe.txt"            
+            fileName="about_me.txt"            
           /> {/* Pass label prop */}
         </div>
       </DraggableComponent>
 
-      <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
+      {/* <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
         <div
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
-          onMouseUp={() => handleMouseUp('file', 'specialties.txt', specialtiesText)} // Pass label as argument
-          style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
+          onMouseUp={() => handleMouseUp('file', 'specialties.txt', specialtiesText)} 
+          style={{ width: '100px', height: '100px' }} 
         >
           <FileIconButton 
             fileName="specialties.txt"            
-          /> {/* Pass label prop */}
+          /> 
         </div>
-      </DraggableComponent>
+      </DraggableComponent> */}
 
       <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
         <div
