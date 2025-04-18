@@ -14,10 +14,6 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
     cursor: 'move',
     display: 'flex',
     flexDirection: 'column',
-    '@media (max-width: 768px)': {
-      width: '80vw',
-      height: '80vh',
-    },
   };
 
   const titleBarStyle = {
@@ -51,14 +47,7 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
     display: 'flex',
     fontSize: '14px',
     justifyContent: 'space-between',
-    borderBottom: '1px solid black',
-    // Media query for mobile devices (width <= 768px)
-    // Hides the Type and Last Modified columns in the header
-    '@media (max-width: 768px)': {
-      '& > div:nth-child(2), & > div:nth-child(3)': {
-        display: 'none'
-      }
-    }
+    borderBottom: '1px solid black',    
   };
 
   return (
@@ -71,9 +60,9 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
           <div style={closeButtonStyle} onClick={onClose}>X</div>
         </div>
         <div style={tableHeaderStyle}>
-          <div style={{ textAlign: 'left', width: '33.33%' }}>Name</div>
-          <div style={{ textAlign: 'left', width: '33.33%' }}>Type</div>
-          <div style={{ textAlign: 'left', width: '33.33%' }}>Last Modified</div>          
+          <div style={{ textAlign: 'left', width: '50%' }}>Name</div>
+          <div style={{ textAlign: 'left', width: '25%' }}>Type</div>
+          <div style={{ textAlign: 'left', width: '25%' }}>Last Modified</div>          
         </div>
         {/* file list */}
         <div style={{ 
@@ -94,25 +83,19 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
             onClick={() => onFileClick(file.name)}
             >
               {/* Name column - always visible */}
-              <div style={{ display: 'flex', alignItems: 'center', width: '33.33%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', width: '50%' }}>
                 <img src={fileIcon} alt={file.name} style={{ width: '20px', height: '20px' }} />
                 <span style={{ marginLeft: '8px' }}>{file.name}</span>
               </div>
               {/* Type column - hidden on mobile */}
               <div style={{ 
                 textAlign: 'left', 
-                width: '33.33%',
-                '@media (max-width: 768px)': {
-                  display: 'none'
-                }
+                width: '25%',                
               }}>{file.type}</div>
               {/* Last Modified column - hidden on mobile */}
               <div style={{ 
                 textAlign: 'left', 
-                width: '33.33%',
-                '@media (max-width: 768px)': {
-                  display: 'none'
-                }
+                width: '25%',                
               }}>{file.last_modified}</div>
             </div>
           ))}
