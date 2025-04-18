@@ -70,11 +70,11 @@ const App = () => {
       <br/><br/>
       i live in nyc
       <br/><br/>
-      i love software, martial arts, and scruffy white dogs
+      i love software, startups, martial arts, and scruffy white dogs
       <br/><br/>
       i work as a product manager at <a href="https://mixpanel.com" target="_blank" rel="noopener noreferrer">mixpanel</a>, where i build data analytics software for other product managers. my favorite part of my job is jamming with silly engineers and cool designers 
       <br/><br/>
-      when i grow up, i want to be a successful founder / angel investor
+      when i grow up, i want to be a successful startup founder / angel investor
     </span>;
 
   // const specialtiesText = 
@@ -94,11 +94,11 @@ const App = () => {
   <span style={{ display: 'block' }}>
     my goals in life:
     <br/><br/> 
-    - build great software products 
+    - built great software products 
     <br/><br/>     
     - be a formidable mixed martial artist
     <br/><br/>     
-    - support low-income / minority founders and artists
+    - support low-income / poc founders and artists
     <br/><br/>     
   </span>;
 
