@@ -2,10 +2,13 @@ import React, { useState, useRef } from 'react';
 import DraggableComponent from './DraggableComponent';
 import Notepad from './Notepad';
 import StartButton from './StartButton';
-import FolderIconButton from './FolderIconButton'; // Import the new button component
 import './App.css';
 import FileIconButton from './FileIconButton';
 import musicIcon from './musicIcon.png';
+import FolderIconButton from './FolderIconButton';
+
+// Writing folder files
+import favoriteMoviesText from './favorite_movies.js';
 
 import envelopeIcon from './envelopeIcon.png'
 import browserFileIcon from './browserFileIcon.png'
@@ -18,15 +21,17 @@ const App = () => {
   const [selectedFolderName, setSelectedFolderName] = useState(null)
   const [selectedFileName, setSelectedFileName] = useState(null)
   const [selectedFileText, setSelectedFileText] = useState(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const isDragging = useRef(false);
 
-  const handleMouseDown = () => {
+  const handleMouseDown = (event) => {
     isDragging.current = false;
+    setMousePosition({ x: event.clientX, y: event.clientY });
   };
 
   const handleMouseMove = () => {
-    isDragging.current = true;
+    isDragging.current = true;    
   };
 
   const handleMouseUp = (buttonType, entityName, fileText) => {
@@ -60,7 +65,7 @@ const App = () => {
       <br/><br/>
       i live in nyc
       <br/><br/>
-      i love software, martial arts, and small white dogs
+      i love software, martial arts, and scruffy white dogs
       <br/><br/>
       i work as a product manager at <a href="https://mixpanel.com" target="_blank" rel="noopener noreferrer">mixpanel</a>, where i build data analytics software for other product managers
       <br/><br/>
@@ -84,51 +89,26 @@ const App = () => {
   <span style={{ display: 'block' }}>
     goals in life:
     <br/><br/> 
-    build successful software businesses
-    <br/><br/>     
-    run a venture fund investing in software businesses
+    build great software products 
     <br/><br/>     
     be a formidable mixed martial artist
     <br/><br/>     
     support low-income / minority founders and artists
     <br/><br/>     
-
   </span>;
 
-  const hobbiesText = 
-  <span style={{ display: 'block' }}>
-    i love eating good food with friends, 
-    <br/><br/> 
-    when i grow up, i want to be a successful software founder / investor.
-    <br/><br/>     
+  const writingFolderFiles = [
+    { name: 'favorite_movies.txt', type: '.txt', last_modified: '2024-01-01', text: favoriteMoviesText },
+  ];
 
-  </span>;
-
-
-  const bucketListText = 
-  <span style={{ display: 'block' }}>
-    build a bootstrapped software business
-    <br/><br/> 
-    build a venture-backed software business
-    <br/><br/> 
-    run an accelerator for software business
-    <br/><br/> 
-
-
-  </span>;
+  const handleFolderFileClick = (fileName) => {
+    setSelectedFileName(fileName)
+    setSelectedFileText(writingFolderFiles.find(file => file.name === fileName).text)
+    setIsNotepadVisible(true)
+  }
 
   return (
     <div style={{ backgroundColor: '#008080', width: '100vw', height: '100vh' }}>
-      {/* <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
-        <div
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={() => handleMouseUp('folder', 'hobbies')} // Pass label as argument
-          style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
-        >
-          <FolderIconButton label="hobbies"/>
-        </div>
-      </DraggableComponent> */}
 
       <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
       <div
@@ -138,7 +118,7 @@ const App = () => {
           style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
         >
           <img src={musicIcon} alt="Music Icon" style={{ width: '100px', height: '100px' }}/>
-          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>2024playlist.mp3</span>
+          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>2024_playlist.mp3</span>
         </div>
 
       </DraggableComponent>
@@ -154,11 +134,7 @@ const App = () => {
           <span style={{ color: 'white', fontFamily: 'Arial', fontSize: '16px' }}>email.exe</span>
         </div>
 
-      </DraggableComponent>
-
-      
-
-      
+      </DraggableComponent>            
 
       <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
       <div
@@ -175,7 +151,7 @@ const App = () => {
           }} // Set size to 100px width and height
         >
           <img src={browserFileIcon} style={{ width: '100px', height: '100px' }}/>
-          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>personalAd.html</span>
+          <span style={{ color: 'white', fontFamily: 'Arial', marginTop: '10px', fontSize: '16px' }}>personal_ad.html</span>
         </div>
 
       </DraggableComponent>
@@ -184,11 +160,11 @@ const App = () => {
         <div
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
-          onMouseUp={() => handleMouseUp('file', 'dearDiary.txt', dearDiaryText)} // Pass label as argument
+          onMouseUp={() => handleMouseUp('file', 'dear_diary.txt', dearDiaryText)} // Pass label as argument
           style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
         >
           <FileIconButton 
-            fileName="dearDiary.txt"            
+            fileName="dear_diary.txt"            
           /> {/* Pass label prop */}
         </div>
       </DraggableComponent>
@@ -219,19 +195,34 @@ const App = () => {
         </div>
       </DraggableComponent>
 
+      <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
+        <div
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={() => handleMouseUp('folder', 'writing')} // Pass label as argument
+          style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
+        >
+          <FolderIconButton 
+            label="writing"            
+          /> {/* Pass label prop */}
+        </div>
+      </DraggableComponent>
+
 
       {isOpenFolderWindowVisible && (
-        <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
+        <DraggableComponent initialX={mousePosition.x} initialY={mousePosition.y}>
           <OpenFolderWindow 
             onClose={() => setIsOpenFolderWindowVisible(false)} 
             titleText={selectedFolderName} // Add titleText prop
+            files={writingFolderFiles}
+            onFileClick={handleFolderFileClick}
           />
         </DraggableComponent>
         
       )}
       
       {isNotepadVisible && (
-        <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
+        <DraggableComponent initialX={mousePosition.x} initialY={mousePosition.y}>
           <Notepad 
             onClose={() => setIsNotepadVisible(false)} 
             fileName={selectedFileName}

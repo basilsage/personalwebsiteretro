@@ -53,8 +53,7 @@ const Notepad = ({ onClose, fileName, fileText }) => {
         <div style={closeButtonStyle} onClick={onClose}>X</div>
       </div>
       <div style={{ height: 'calc(100% - 53px)', padding: '10px' }}>
-        <span style={textAreaStyle}>{fileText}</span>
-
+        <span style={{...textAreaStyle, whiteSpace: 'pre-wrap'}}>{fileText}</span>
       </div>
       
     </div>
