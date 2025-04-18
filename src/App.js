@@ -11,8 +11,8 @@ import FolderIconButton from './FolderIconButton';
 import favoriteMoviesText from './miscellaneous_pieces/favorite_movies.js';
 import goodreadsExportText from './miscellaneous_pieces/goodreads_export.js';
 // Writing folder files
-import loveLetterToDataBusinessesText from './writing_pieces/love_letter_to_data_businesses.js';
-
+// import loveLetterToDataBusinessesText from './writing_pieces/love_letter_to_data_businesses.js';
+// import monkModeText from './writing_pieces/monk_mode.js';
 import envelopeIcon from './envelopeIcon.png'
 import browserFileIcon from './browserFileIcon.png'
 
@@ -90,7 +90,8 @@ const App = () => {
   </span>;
 
   const writingFolderFiles = [
-    { name: 'data_businesses.html', type: '.html', last_modified: '2025-04-18', text: loveLetterToDataBusinessesText },
+    { name: 'data_businesses.html', type: '.html', last_modified: '2025-04-18' },
+    // { name: 'draft_monk_mode.html', type: '.html', last_modified: '2025-04-18' },
   ];
 
   const miscellaneousFolderFiles = [
