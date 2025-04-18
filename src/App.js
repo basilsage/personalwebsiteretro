@@ -72,9 +72,7 @@ const App = () => {
       <br/><br/>
       i love software, martial arts, and scruffy white dogs
       <br/><br/>
-      i work as a product manager at <a href="https://mixpanel.com" target="_blank" rel="noopener noreferrer">mixpanel</a>, where i build data analytics software for other product managers
-      <br/><br/>
-      my favorite part of my job is jamming with silly engineers and cool designers 
+      i work as a product manager at <a href="https://mixpanel.com" target="_blank" rel="noopener noreferrer">mixpanel</a>, where i build data analytics software for other product managers. my favorite part of my job is jamming with silly engineers and cool designers 
       <br/><br/>
       when i grow up, i want to be a successful founder / angel investor
     </span>;
