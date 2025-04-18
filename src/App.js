@@ -7,8 +7,11 @@ import FileIconButton from './FileIconButton';
 import musicIcon from './musicIcon.png';
 import FolderIconButton from './FolderIconButton';
 
+// Miscellaneous folder files
+import favoriteMoviesText from './miscellaneous_pieces/favorite_movies.js';
+
 // Writing folder files
-import favoriteMoviesText from './favorite_movies.js';
+import loveLetterToDataBusinessesText from './writing_pieces/love_letter_to_data_businesses.js';
 
 import envelopeIcon from './envelopeIcon.png'
 import browserFileIcon from './browserFileIcon.png'
@@ -98,7 +101,11 @@ const App = () => {
   </span>;
 
   const writingFolderFiles = [
-    { name: 'favorite_movies.txt', type: '.txt', last_modified: '2024-01-01', text: favoriteMoviesText },
+    { name: 'i_love_data_businesses.txt', type: '.txt', last_modified: '2025-04-18', text: loveLetterToDataBusinessesText },
+  ];
+
+  const miscellaneousFolderFiles = [
+    { name: 'favorite_movies.txt', type: '.txt', last_modified: '2025-04-18', text: favoriteMoviesText },
   ];
 
   const handleFolderFileClick = (fileName) => {
@@ -208,13 +215,26 @@ const App = () => {
         </div>
       </DraggableComponent>
 
+      <DraggableComponent initialX={getRandomPosition(screenWidth)} initialY={getRandomPosition(screenHeight)}>
+        <div
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={() => handleMouseUp('folder', 'miscellaneous')} // Pass label as argument
+          style={{ width: '100px', height: '100px' }} // Set size to 100px width and height
+        >
+          <FolderIconButton 
+            label="miscellaneous"            
+          /> {/* Pass label prop */}
+        </div>
+      </DraggableComponent>
+
 
       {isOpenFolderWindowVisible && (
         <DraggableComponent initialX={mousePosition.x} initialY={mousePosition.y}>
           <OpenFolderWindow 
             onClose={() => setIsOpenFolderWindowVisible(false)} 
             titleText={selectedFolderName} // Add titleText prop
-            files={writingFolderFiles}
+            files={selectedFolderName === 'writing' ? writingFolderFiles : miscellaneousFolderFiles}
             onFileClick={handleFolderFileClick}
           />
         </DraggableComponent>

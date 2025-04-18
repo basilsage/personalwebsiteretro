@@ -52,8 +52,8 @@ const Notepad = ({ onClose, fileName, fileText }) => {
         <p style={titleStyle}>{fileName}</p>
         <div style={closeButtonStyle} onClick={onClose}>X</div>
       </div>
-      <div style={{ height: 'calc(100% - 53px)', padding: '10px' }}>
-        <span style={{...textAreaStyle, whiteSpace: 'pre-wrap'}}>{fileText}</span>
+      <div style={{ height: 'calc(100% - 53px)', padding: '10px', overflowY: 'auto', maxHeight: 'calc(100% - 10px)' }}>
+        <span style={{...textAreaStyle, whiteSpace: 'pre-wrap', display: 'block'}}>{fileText}</span>
       </div>
       
     </div>

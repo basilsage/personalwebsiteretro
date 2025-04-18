@@ -14,6 +14,10 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
     cursor: 'move',
     display: 'flex',
     flexDirection: 'column',
+    '@media (max-width: 768px)': {
+      width: '80vw',
+      height: '80vh',
+    },
   };
 
   const titleBarStyle = {
@@ -48,6 +52,13 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
     fontSize: '14px',
     justifyContent: 'space-between',
     borderBottom: '1px solid black',
+    // Media query for mobile devices (width <= 768px)
+    // Hides the Type and Last Modified columns in the header
+    '@media (max-width: 768px)': {
+      '& > div:nth-child(2), & > div:nth-child(3)': {
+        display: 'none'
+      }
+    }
   };
 
   return (
@@ -65,7 +76,19 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
           <div style={{ textAlign: 'left', width: '33.33%' }}>Last Modified</div>          
         </div>
         {/* file list */}
-        <div style={{ backgroundColor: 'white', height: '100%', cursor: 'default' }}>
+        <div style={{ 
+          backgroundColor: 'white', 
+          height: '100%', 
+          cursor: 'default',
+          // Media query for mobile devices (width <= 768px)
+          // Hides the Type and Last Modified columns in each file row
+          // Uses nth-child selectors to target the second and third columns
+          '@media (max-width: 768px)': {
+            '& > div > div:nth-child(2), & > div > div:nth-child(3)': {
+              display: 'none'
+            }
+          }
+        }}>
           {files.map((file, index) => (
             <div key={index} style={{ 
               display: 'flex',
@@ -77,11 +100,14 @@ const OpenFolderWindow = ({ onClose, titleText, files, onFileClick }) => {
             }}
             onClick={() => onFileClick(file.name)}
             >
+              {/* Name column - always visible */}
               <div style={{ display: 'flex', alignItems: 'center', width: '33.33%' }}>
                 <img src={fileIcon} alt={file.name} style={{ width: '20px', height: '20px' }} />
                 <span style={{ marginLeft: '8px' }}>{file.name}</span>
               </div>
+              {/* Type column - hidden on mobile */}
               <div style={{ textAlign: 'left', width: '33.33%' }}>{file.type}</div>
+              {/* Last Modified column - hidden on mobile */}
               <div style={{ textAlign: 'left', width: '33.33%' }}>{file.last_modified}</div>
             </div>
           ))}
